@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">SnoreOP</string>
+    <string name="confsiguiente">siguiente</string>
+    <string name="confpromedio">promedio</string>
+    <string name="confmedicion">medicion</string>
+
 </resources>

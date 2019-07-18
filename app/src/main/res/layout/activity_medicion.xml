@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/espacioentretextos"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/dimensiontitulo"
+        android:weightSum="14">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/espacioentretextos"
+            android:layout_weight="6"
+            android:text="@string/confmedicion"/>
+
+        <ListView
+            android:id="@+id/lvMediciones"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2">
+
+        </ListView>
+
+        <TextView
+            android:id="@+id/tvPromedio"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/espacioentretextos"
+            android:layout_weight="6"
+            android:text="@string/confpromedio" />
+    </LinearLayout>
+
+</LinearLayout>

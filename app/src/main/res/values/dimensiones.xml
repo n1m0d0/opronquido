@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="espacioentretextos">10dp</dimen>
+    <dimen name="dimensiontitulo">31dp</dimen>
+    <dimen name="dimensiontv">10dp</dimen>
+
+
+</resources>
