@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">SnoreOP</string>
+    <string name="monitoreoTitulo">Monitoreo</string>
+    <string name="botonResultado">Resultado</string>
+    <string name="botonFinalizar">Finalizar</string>
+    <string name="resultadoTitulo">Resultados</string>
+    
 </resources>
