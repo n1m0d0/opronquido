@@ -15,6 +15,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 import static android.Manifest.permission.CAMERA;
@@ -25,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     private final int duration = 5000;
     Intent ir;
-    Cursor cur;
+    ArrayList<String> cur;
     Toast msj;
 
     @Override
@@ -43,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     conexion.abrir();
                     cur = conexion.sensibilidad();
-                    if (cur.moveToFirst() == false) {
+                    if (cur.size() == 0) {
 
                         conexion.llenar_sensibilidad();
                         conexion.llenar_tiempoInicial();
