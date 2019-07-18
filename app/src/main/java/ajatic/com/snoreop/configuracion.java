@@ -43,7 +43,7 @@ public class configuracion extends AppCompatActivity {
         btnSiguiente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent irMedicion =new Intent(configuracion.this,Medicion.class);
+                Intent irMedicion =new Intent(configuracion.this,tiempoespera.class);
                 startActivity(irMedicion);
             }
         });
