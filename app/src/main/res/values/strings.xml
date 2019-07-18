@@ -4,4 +4,9 @@
     <string name="confpromedio">promedio</string>
     <string name="confmedicion">medicion</string>
     <string name="logo">Logotipo de la Empresa.</string>
+    <string name="monitoreoTitulo">Monitoreo</string>
+    <string name="botonResultado">Resultado</string>
+    <string name="botonFinalizar">Finalizar</string>
+    <string name="resultadoTitulo">Resultados</string>
+
 </resources>

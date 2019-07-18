@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <dimen name="espacioentretextos">10dp</dimen>
     <dimen name="dimensiontitulo">31dp</dimen>
     <dimen name="dimensiontv">10dp</dimen>
 
+    <dimen name="margentitulos">40dp</dimen>
+    <dimen name="espaciotextos">20dp</dimen>
+    <dimen name="tamañotitulo">20dp</dimen>
+    <dimen name="tamañolvMonitoreo">350dp</dimen>
+    <dimen name="tamañolvResultados">350dp</dimen>
+    <dimen name="Padding10">10dp</dimen>
+    <dimen name="ancholvMonitoreo">350dp</dimen>
+    <dimen name="ancholvResultado">350dp</dimen>
 
 </resources>
