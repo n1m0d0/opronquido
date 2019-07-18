@@ -8,4 +8,22 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="logo">
+        <item name="android:layout_width">@dimen/logoWidth</item>
+        <item name="android:layout_height">@dimen/logoHeight</item>
+        <item name="android:src">@drawable/zzz</item>
+        <item name="android:contentDescription">@string/logo</item>
+        <item name="android:layout_margin">@dimen/margin</item>
+    </style>
+
+    <style name="title">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/title</item>
+        <item name="android:textColor">@color/colorTitle</item>
+        <item name="android:layout_margin">@dimen/margin</item>
+    </style>
+
+
+
 </resources>
