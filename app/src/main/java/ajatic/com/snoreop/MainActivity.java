@@ -56,9 +56,9 @@ public class MainActivity extends AppCompatActivity {
                     conexion.cerrar();
                 }
 
-                /*ir = new Intent(MainActivity.this, MainActivity.class);
+                ir = new Intent(MainActivity.this, configuracion.class);
                 startActivity(ir);
-                finish();*/
+                finish();
             }
         }, duration);
 
