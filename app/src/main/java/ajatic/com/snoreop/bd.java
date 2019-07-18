@@ -7,6 +7,8 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.ArrayList;
+
 public class bd {
     //tablas
     //sensibilidad
@@ -127,10 +129,19 @@ public class bd {
     //funciones
     //sensibilidad
     //devuelve todos los registros de la tabla sensibilidad
-    public Cursor sensibilidad() throws SQLException {
+    public ArrayList<String> sensibilidad() throws SQLException {
         String selectQuery = "SELECT * FROM " + sensibilidad;
         Cursor cursor = nBD.rawQuery(selectQuery, null);
-        return cursor;
+
+        ArrayList<String> resultado = new ArrayList<String>();
+        for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor
+                .moveToNext()) {
+
+            resultado.add(cursor.getString(1));
+
+        }
+
+        return resultado;
 
     }
 
@@ -163,10 +174,20 @@ public class bd {
     }
     //tiempo inicial
     //devuelve todos los registros de la tabla tiempoInicial
-    public Cursor tiempoInicial() throws SQLException {
+    public ArrayList<String> tiempoInicial() throws SQLException {
         String selectQuery = "SELECT * FROM " + tiempoInicial;
         Cursor cursor = nBD.rawQuery(selectQuery, null);
-        return cursor;
+
+        ArrayList<String> resultado = new ArrayList<String>();
+
+        for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor
+                .moveToNext()) {
+
+            resultado.add(cursor.getString(1));
+
+        }
+
+        return resultado;
 
     }
 
