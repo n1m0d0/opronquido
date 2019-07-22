@@ -14,6 +14,7 @@ public class bd {
     //sensibilidad
     private static final String idSensibilidad = "_id";
     private static final String porcentaje = "porcentaje";
+    private static final String valor = "valor";
     //tiempo inicial
     private static final String idTiempoInicial = "_id";
     private static final String tiempo = "tiempo";
@@ -57,7 +58,7 @@ public class bd {
 
             db.execSQL("CREATE TABLE " + sensibilidad + "(" + idSensibilidad
                     + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " + porcentaje
-                    + " TEXT NOT NULL);");
+                    + " TEXT NOT NULL, " + valor + " TEXT NOT NULL);");
 
             db.execSQL("CREATE TABLE " + tiempoInicial + "(" + idTiempoInicial
                     + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " + tiempo
@@ -144,6 +145,41 @@ public class bd {
         return resultado;
 
     }
+    // busca sencibilidad segun el nombre
+    public String buscar_sensibilidad(String porcentaje) throws SQLException {
+        String selectQuery = "SELECT * FROM " + sensibilidad + " WHERE "
+                + this.porcentaje + "='"+ porcentaje +"'";
+        Cursor cursor = nBD.rawQuery(selectQuery, null);
+        String id = null;
+
+        if (cursor.moveToFirst() == false) {
+            id = "1";
+        } else {
+            id = cursor.getString(0);
+
+        }
+
+        return id;
+
+    }
+
+    // busca sencibilidad segun el id
+    public String buscar_sensibilidadId(String id) throws SQLException {
+        String selectQuery = "SELECT * FROM " + sensibilidad + " WHERE "
+                + this.idSensibilidad + "='"+ id +"'";
+        Cursor cursor = nBD.rawQuery(selectQuery, null);
+        String porcentaje = null;
+
+        if (cursor.moveToFirst() == false) {
+            porcentaje = "0.05";
+        } else {
+            porcentaje = cursor.getString(2);
+
+        }
+
+        return porcentaje;
+
+    }
 
     //registra la sensibilidad
     public long registrar_sensibilidad(String porcentaje)
@@ -160,15 +196,19 @@ public class bd {
         // TODO Auto-generated method stub
         ContentValues cv1 = new ContentValues();
         cv1.put(porcentaje, "5%");
+        cv1.put(valor, "0.05");
         nBD.insert(sensibilidad, null, cv1);
         ContentValues cv2 = new ContentValues();
         cv2.put(porcentaje, "10%");
+        cv2.put(valor, "0.10");
         nBD.insert(sensibilidad, null, cv2);
         ContentValues cv3 = new ContentValues();
         cv3.put(porcentaje, "15%");
+        cv3.put(valor, "0.15");
         nBD.insert(sensibilidad, null, cv3);
         ContentValues cv4 = new ContentValues();
         cv4.put(porcentaje, "20%");
+        cv4.put(valor, "0.2");
         nBD.insert(sensibilidad, null, cv4);
 
     }
@@ -191,13 +231,49 @@ public class bd {
 
     }
 
+    // busca TiempoInicial segun el nombre;
+    public String buscar_tiempoInicial(String tiempo) throws SQLException {
+        String selectQuery = "SELECT * FROM " + tiempoInicial + " WHERE "
+                + this.tiempo + "='"+ tiempo +"'";
+        Cursor cursor = nBD.rawQuery(selectQuery, null);
+        String id = null;
+
+        if (cursor.moveToFirst() == false) {
+            id = "1";
+        } else {
+            id = cursor.getString(0);
+
+        }
+
+        return id;
+
+    }
+
+    // busca TiempoInicial segun el id
+    public String buscar_TiempoInicialId(String id) throws SQLException {
+        String selectQuery = "SELECT * FROM " + tiempoInicial + " WHERE "
+                + this.idTiempoInicial + "='"+ id +"'";
+        Cursor cursor = nBD.rawQuery(selectQuery, null);
+        String tiempo = null;
+
+        if (cursor.moveToFirst() == false) {
+            tiempo = "20";
+        } else {
+            tiempo = cursor.getString(1);
+
+        }
+
+        return tiempo;
+
+    }
+
     //registra tiempoInicial
     public long registrar_tiempoInicial(String tiempo)
             throws SQLException {
         // TODO Auto-generated method stub
         ContentValues cv = new ContentValues();
         cv.put(this.tiempo, tiempo);
-        return nBD.insert(sensibilidad, null, cv);
+        return nBD.insert(tiempoInicial, null, cv);
 
     }
     //llenar tiempoInicial
@@ -225,7 +301,7 @@ public class bd {
     //configuracion
     //devuelve todos los registros de la tabla configuracion
     public Cursor configuracion() throws SQLException {
-        String selectQuery = "SELECT * FROM " + tiempoInicial;
+        String selectQuery = "SELECT * FROM " + configuracion;
         Cursor cursor = nBD.rawQuery(selectQuery, null);
         return cursor;
 
@@ -254,9 +330,27 @@ public class bd {
     //promedio
     //devuelve todos los registros de la tabla promedio
     public Cursor promedio() throws SQLException {
-        String selectQuery = "SELECT * FROM " + promedio;
+        String selectQuery = "SELECT * FROM " + promedioDia;
         Cursor cursor = nBD.rawQuery(selectQuery, null);
         return cursor;
+
+    }
+
+    // busca Promedio segun el id
+    public String buscar_Promedio(String id) throws SQLException {
+        String selectQuery = "SELECT * FROM " + promedioDia + " WHERE "
+                + this.idPromedio + "='"+ id +"'";
+        Cursor cursor = nBD.rawQuery(selectQuery, null);
+        String promedio = null;
+
+        if (cursor.moveToFirst() == false) {
+            promedio = "60";
+        } else {
+            promedio = cursor.getString(2);
+
+        }
+
+        return promedio;
 
     }
 
@@ -280,7 +374,7 @@ public class bd {
     }
 
     //registra la monitoreo
-    public long registrar_monitoreo(int promedioId, String medicion)
+    public long registrar_monitoreo(String promedioId, String medicion)
             throws SQLException {
         // TODO Auto-generated method stub
         ContentValues cv = new ContentValues();

@@ -74,20 +74,20 @@ public class MainActivity extends AppCompatActivity {
             return true;
 
         }
-        if((checkSelfPermission(ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) && (checkSelfPermission(ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) && (checkSelfPermission(CAMERA) == PackageManager.PERMISSION_GRANTED) && (checkSelfPermission(WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) && (checkSelfPermission(RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED)){
+        if((checkSelfPermission(WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) && (checkSelfPermission(RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED)){
 
             return true;
 
         }
 
-        if ((shouldShowRequestPermissionRationale(ACCESS_FINE_LOCATION)) || (shouldShowRequestPermissionRationale(ACCESS_COARSE_LOCATION)) || (shouldShowRequestPermissionRationale(CAMERA)) || (shouldShowRequestPermissionRationale(WRITE_EXTERNAL_STORAGE))  || (shouldShowRequestPermissionRationale(RECORD_AUDIO))) {
+        if ((shouldShowRequestPermissionRationale(WRITE_EXTERNAL_STORAGE))  || (shouldShowRequestPermissionRationale(RECORD_AUDIO))) {
 
             cargardialogo();
 
         }
         else {
 
-            requestPermissions(new String[]{ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION, WRITE_EXTERNAL_STORAGE, CAMERA, RECORD_AUDIO}, 100);
+            requestPermissions(new String[]{WRITE_EXTERNAL_STORAGE, RECORD_AUDIO}, 100);
 
         }
 
@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    requestPermissions(new String[]{ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION, WRITE_EXTERNAL_STORAGE, CAMERA, RECORD_AUDIO}, 100);
+                    requestPermissions(new String[]{WRITE_EXTERNAL_STORAGE, RECORD_AUDIO}, 100);
                 }
 
             }
@@ -121,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
 
         if(requestCode == 100) {
 
-            if(grantResults.length == 5 && grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED && grantResults[2] == PackageManager.PERMISSION_GRANTED && grantResults[3] == PackageManager.PERMISSION_GRANTED  && grantResults[4] == PackageManager.PERMISSION_GRANTED) {
+            if(grantResults.length == 2 && grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
 
 
 

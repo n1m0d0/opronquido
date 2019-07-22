@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.media.MediaRecorder;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -23,18 +24,17 @@ public class Medicion extends AppCompatActivity {
     ListView lvMediciones;
     TextView tvPromedio;
     int tiempoEspera;
-    ArrayList<String>arrMedicion=new ArrayList<String>();
-    int contador=0;
-
+    ArrayList<String> arrMedicion = new ArrayList<String>();
+    int contador = 0;
+    String idPromedio;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_medicion);
-        lvMediciones =findViewById(R.id.lvMediciones);
-        tvPromedio =findViewById(R.id.tvPromedio);
-        tiempoEspera=24;
-
+        lvMediciones = findViewById(R.id.lvMediciones);
+        tvPromedio = findViewById(R.id.tvPromedio);
+        tiempoEspera = 24;
 
 
         MediaRecorder recorder = new MediaRecorder();
@@ -47,14 +47,12 @@ public class Medicion extends AppCompatActivity {
         try {
             recorder.prepare();
             recorder.start();
-        } catch(IllegalStateException e)
-        {
+        } catch (IllegalStateException e) {
             e.printStackTrace();
         } catch (IOException e) {
-// TODO Auto-generated catch block
+            // TODO Auto-generated catch block
             e.printStackTrace();
         }
-
 
 
     }
@@ -73,35 +71,35 @@ public class Medicion extends AppCompatActivity {
                     int amplitude = recorder.getMaxAmplitude();
 
                     String fecha = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
-                    double amplitudeDb = 20 * Math.log10((double)Math.abs(amplitude));
+                    double amplitudeDb = 20 * Math.log10((double) Math.abs(amplitude));
                     DecimalFormat df = new DecimalFormat("#.00");
-                    tvPromedio.setText(""+df.format(amplitudeDb));
+                    tvPromedio.setText("" + df.format(amplitudeDb));
 
-                   if(contador == 24){
-
-                       Intent irMonitorei = new Intent(Medicion.this,monitoreo.class);
-                       startActivity(irMonitorei);
-                   }else{
-                    if(contador >= 2) {
-                        arrMedicion.add("" + df.format(amplitudeDb));
-                        ArrayAdapter adaptadorMedicion = new ArrayAdapter(Medicion.this, android.R.layout.simple_spinner_item, arrMedicion);
-                        lvMediciones.setAdapter(adaptadorMedicion);
-
+                    if (contador == 24) {
+                        String promedio = sacarPromedio(arrMedicion);
+                        Log.w("promedio", promedio);
                         //Abrir base de datos
-                         bd conexionBD = new bd(Medicion.this);
-                            try {
+                        bd conexionBD = new bd(Medicion.this);
+                        try {
                             conexionBD.abrir();
-                            conexionBD.registrar_promedio(fecha, "" + df.format(amplitudeDb));
-                            } catch (Exception e) {
-                                e.printStackTrace();
+                            idPromedio = "" + conexionBD.registrar_promedio(fecha, promedio);
+                            conexionBD.cerrar();
+                        } catch (Exception e) {
+                            e.printStackTrace();
 
-                            }
+                        }
+                        Intent irMonitorei = new Intent(Medicion.this, monitoreo.class);
+                        irMonitorei.putExtra("idPromedio",idPromedio);
+                        startActivity(irMonitorei);
+                    } else {
+                        if (contador >= 2) {
+                            arrMedicion.add("" + df.format(amplitudeDb));
+                            ArrayAdapter adaptadorMedicion = new ArrayAdapter(Medicion.this, android.R.layout.simple_spinner_item, arrMedicion);
+                            lvMediciones.setAdapter(adaptadorMedicion);
                         }
 
                     }
-                   contador ++;
-
-
+                    contador++;
 
 
                 }
@@ -109,8 +107,16 @@ public class Medicion extends AppCompatActivity {
         }
     }
 
-
-
-
-
+    public String sacarPromedio(ArrayList<String> medicion) {
+        String promedio = null;
+        double suma = 0;
+        int size = medicion.size();
+        for (int i = 0; i < size; i++){
+            suma = suma + (Double.parseDouble(medicion.get(i)));
+        }
+        double promediar = suma / size;
+        DecimalFormat df = new DecimalFormat("#.00");
+        promedio = df.format(promediar);
+        return promedio;
+    }
 }

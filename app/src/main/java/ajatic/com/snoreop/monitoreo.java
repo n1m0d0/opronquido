@@ -1,6 +1,7 @@
 package ajatic.com.snoreop;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.media.MediaRecorder;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -22,17 +23,42 @@ public class monitoreo extends AppCompatActivity {
 
     ListView lvMonitoreo;
     Button btnResultados;
-    double promedio = 65;
-    ArrayList<String> alertas =new ArrayList<String>();
+    double promedio;
+    ArrayList<String> alertas = new ArrayList<String>();
+    Cursor cursorCofiguracion;
+    double sensibilidad;
+    String idPromedio;
+    String medicion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_monitoreo);
 
-        lvMonitoreo=findViewById(R.id.lvMonitoreo);
-        btnResultados=findViewById(R.id.btnResultados);
-        promedio = promedio + (promedio * 0.05);
+        lvMonitoreo = findViewById(R.id.lvMonitoreo);
+        btnResultados = findViewById(R.id.btnResultados);
+
+        Bundle datos = this.getIntent().getExtras();
+        idPromedio = datos.getString("idPromedio");
+        Log.w("idPromedio", idPromedio);
+        bd conexion = new bd(monitoreo.this);
+        try {
+            conexion.abrir();
+            cursorCofiguracion = conexion.configuracion();
+            cursorCofiguracion.moveToFirst();
+            sensibilidad = Double.parseDouble(conexion.buscar_sensibilidadId(cursorCofiguracion.getString(1)));
+            promedio = Double.parseDouble(conexion.buscar_Promedio(idPromedio));
+            Log.w("promedio", "" + promedio);
+            Log.w("sensibilidad", "" + sensibilidad);
+            conexion.cerrar();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+
+        promedio = promedio + (promedio * sensibilidad);
+        Log.w("promediototal", "" + promedio);
         //Inicializando la grabacion
         MediaRecorder recorder = new MediaRecorder();
         recorder.setAudioSource(MediaRecorder.AudioSource.MIC);
@@ -44,8 +70,7 @@ public class monitoreo extends AppCompatActivity {
         try {
             recorder.prepare();
             recorder.start();
-        } catch(IllegalStateException e)
-        {
+        } catch (IllegalStateException e) {
             e.printStackTrace();
         } catch (IOException e) {
 // TODO Auto-generated catch block
@@ -53,6 +78,7 @@ public class monitoreo extends AppCompatActivity {
         }
 
     }
+
     // Esta es la funcion que esta escuchando (grabando)
     private class RecorderTask extends TimerTask {
         private MediaRecorder recorder;
@@ -67,20 +93,25 @@ public class monitoreo extends AppCompatActivity {
                 public void run() {
                     int amplitude = recorder.getMaxAmplitude();
 
-                    double amplitudeDb = 20 * Math.log10((double)Math.abs(amplitude));
+                    double amplitudeDb = 20 * Math.log10((double) Math.abs(amplitude));
                     DecimalFormat df = new DecimalFormat("#.00");
+                    medicion = df.format(amplitudeDb);
                     //Realizacion de comparacion del valor obtenido en db con el promedio
 
-                    Log.w("promedio","" + promedio);
-
-                    if(promedio <= amplitudeDb){
+                    if (promedio <= amplitudeDb) {
                         alertas.add(df.format(amplitudeDb));
-                        ArrayAdapter <String> adaptadorMonitoreo = new ArrayAdapter<String>(monitoreo.this,android.R.layout.simple_spinner_item,alertas);
+                        ArrayAdapter<String> adaptadorMonitoreo = new ArrayAdapter<String>(monitoreo.this, android.R.layout.simple_spinner_item, alertas);
                         lvMonitoreo.setAdapter(adaptadorMonitoreo);
-
+                        bd conexion = new bd(monitoreo.this);
+                        try {
+                            conexion.abrir();
+                            conexion.registrar_monitoreo(idPromedio, medicion);
+                            conexion.cerrar();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
 
                     }
-
 
 
                 }
