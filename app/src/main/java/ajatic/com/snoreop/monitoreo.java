@@ -88,7 +88,7 @@ public class monitoreo extends AppCompatActivity {
         recorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
         recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
         Timer timer = new Timer();
-        timer.scheduleAtFixedRate(new monitoreo.RecorderTask(recorder), 0, 5000);
+        timer.scheduleAtFixedRate(new monitoreo.RecorderTask(recorder), 0, 500);
         recorder.setOutputFile("/dev/null");
         try {
             recorder.prepare();
@@ -124,14 +124,14 @@ public class monitoreo extends AppCompatActivity {
         btnResultados.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (btSocket != null) {
+                /*if (btSocket != null) {
                     try {
                         btSocket.close();
                     } catch (IOException e) {
                         Toast.makeText(getBaseContext(), "Error", Toast.LENGTH_SHORT).show();
                     }
                 }
-                finish();
+                finish();*/
             }
         });
 
@@ -154,8 +154,8 @@ public class monitoreo extends AppCompatActivity {
                     double amplitudeDb = 20 * Math.log10((double) Math.abs(amplitude));
                     DecimalFormat df = new DecimalFormat("#.00");
                     medicion = df.format(amplitudeDb);
-                    //Realizacion de comparacion del valor obtenido en db con el promedio
 
+                    //Realizacion de comparacion del valor obtenido en db con el promedio
                     if (promedio <= amplitudeDb) {
                         alertas.add(df.format(amplitudeDb));
                         ArrayAdapter<String> adaptadorMonitoreo = new ArrayAdapter<String>(monitoreo.this, android.R.layout.simple_spinner_item, alertas);
@@ -170,7 +170,6 @@ public class monitoreo extends AppCompatActivity {
                         }
                         MyConexionBT.write("R2`");
                     }
-
 
                 }
             });
@@ -238,48 +237,44 @@ public class monitoreo extends AppCompatActivity {
         }
     }
 
-    private BluetoothSocket createBluetoothSocket(BluetoothDevice device) throws IOException
-    {
+    private BluetoothSocket createBluetoothSocket(BluetoothDevice device) throws IOException {
         //crea un conexion de salida segura para el dispositivo
         //usando el servicio UUID
         return device.createRfcommSocketToServiceRecord(BTMODULEUUID);
     }
 
     @Override
-    public void onResume()
-    {
+    public void onResume() {
         super.onResume();
         address = "98:D3:31:70:8B:84";//<-<- PARTE A MODIFICAR >->->
         //Setea la direccion MAC
         BluetoothDevice device = btAdapter.getRemoteDevice(address);
 
-        try
-        {
+        try {
             btSocket = createBluetoothSocket(device);
         } catch (IOException e) {
             Toast.makeText(getBaseContext(), "La creacción del Socket fallo", Toast.LENGTH_LONG).show();
         }
         // Establece la conexión con el socket Bluetooth.
-        try
-        {
+        try {
             btSocket.connect();
         } catch (IOException e) {
             try {
                 btSocket.close();
-            } catch (IOException e2) {}
+            } catch (IOException e2) {
+            }
         }
         MyConexionBT = new ConnectedThread(btSocket);
         MyConexionBT.start();
     }
 
     @Override
-    public void onPause()
-    {
+    public void onPause() {
         super.onPause();
-        try
-        { // Cuando se sale de la aplicación esta parte permite
+        try { // Cuando se sale de la aplicación esta parte permite
             // que no se deje abierto el socket
             btSocket.close();
-        } catch (IOException e2) {}
+        } catch (IOException e2) {
+        }
     }
 }
