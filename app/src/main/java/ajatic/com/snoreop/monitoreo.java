@@ -39,6 +39,7 @@ public class monitoreo extends AppCompatActivity {
     double sensibilidad;
     String idPromedio;
     String medicion;
+    int contador = 0;
 
     /***********************************/
     Handler bluetoothIn;
@@ -168,7 +169,27 @@ public class monitoreo extends AppCompatActivity {
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
-                        MyConexionBT.write("R2`");
+                        if (contador == 0) {
+                            MyConexionBT.write("R2`");
+                            contador++;
+                        } else {
+                            if (contador < 5) {
+                                contador++;
+                            } else {
+                                //cadena de cancelacion
+                                //MyConexionBT.write("R2`");
+                                contador = 0;
+                            }
+                        }
+
+                    } else {
+                        if (contador > 0 && contador < 5) {
+                            contador++;
+                        } else {
+                            //cadena de cancelacion
+                            //MyConexionBT.write("R2`");
+                            contador = 0;
+                        }
                     }
 
                 }
