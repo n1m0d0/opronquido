@@ -1,6 +1,7 @@
 package ajatic.com.snoreop;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.database.Cursor;
 import android.os.Handler;
 import android.os.HandlerThread;
@@ -17,6 +18,7 @@ public class tiempoespera extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tiempoespera);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         /*bd conexion = new bd(tiempoespera.this);
         try {
@@ -40,6 +42,7 @@ public class tiempoespera extends AppCompatActivity {
 
                 Intent irMedicion = new Intent(tiempoespera.this, Medicion.class);
                 startActivity(irMedicion);
+                finish();
 
             }
         }, tiempoEspera);

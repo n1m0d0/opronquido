@@ -4,6 +4,7 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.database.Cursor;
 import android.media.MediaRecorder;
 import android.os.Handler;
@@ -40,6 +41,7 @@ public class monitoreo extends AppCompatActivity {
     String idPromedio;
     String medicion;
     int contador = 0;
+    MediaRecorder recorder;
 
     /***********************************/
     Handler bluetoothIn;
@@ -59,6 +61,7 @@ public class monitoreo extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_monitoreo);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         lvMonitoreo = findViewById(R.id.lvMonitoreo);
         btnResultados = findViewById(R.id.btnResultados);
@@ -84,7 +87,7 @@ public class monitoreo extends AppCompatActivity {
         promedio = promedio + (promedio * sensibilidad);
         Log.w("promediototal", "" + promedio);
         //Inicializando la grabacion
-        MediaRecorder recorder = new MediaRecorder();
+        recorder = new MediaRecorder();
         recorder.setAudioSource(MediaRecorder.AudioSource.MIC);
         recorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
         recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
@@ -113,6 +116,7 @@ public class monitoreo extends AppCompatActivity {
                     if (endOfLineIndex > 0) {
                         String dataInPrint = DataStringIN.substring(0, endOfLineIndex);
                         //IdBufferIn.setText("Dato: " + dataInPrint);//<-<- PARTE A MODIFICAR >->->
+                        Log.w("RespuestaBluetoorh", dataInPrint);
                         DataStringIN.delete(0, DataStringIN.length());
                     }
                 }
@@ -133,6 +137,8 @@ public class monitoreo extends AppCompatActivity {
                     }
                 }
                 finish();*/
+                recorder.stop();
+                finish();
             }
         });
 

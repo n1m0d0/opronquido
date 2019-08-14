@@ -1,6 +1,7 @@
 package ajatic.com.snoreop;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.media.MediaRecorder;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,22 +28,24 @@ public class Medicion extends AppCompatActivity {
     ArrayList<String> arrMedicion = new ArrayList<String>();
     int contador = 0;
     String idPromedio;
+    MediaRecorder recorder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_medicion);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         lvMediciones = findViewById(R.id.lvMediciones);
         tvPromedio = findViewById(R.id.tvPromedio);
         tiempoEspera = 24;
 
 
-        MediaRecorder recorder = new MediaRecorder();
+        recorder = new MediaRecorder();
         recorder.setAudioSource(MediaRecorder.AudioSource.MIC);
         recorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
         recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
         Timer timer = new Timer();
-        timer.scheduleAtFixedRate(new RecorderTask(recorder), 0, 5000);
+        timer.scheduleAtFixedRate(new RecorderTask(recorder), 0, 1000);
         recorder.setOutputFile("/dev/null");
         try {
             recorder.prepare();
@@ -73,14 +76,17 @@ public class Medicion extends AppCompatActivity {
                     String fecha = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
                     double amplitudeDb = 20 * Math.log10((double) Math.abs(amplitude));
                     DecimalFormat df = new DecimalFormat("#.00");
-                    tvPromedio.setText("" + df.format(amplitudeDb));
+                    //tvPromedio.setText("" + df.format(amplitudeDb));
+                    tvPromedio.setText("" + amplitudeDb);
 
                     if (contador == 24) {
-                        String promedio = sacarPromedio(arrMedicion);
-                        Log.w("promedio", promedio);
+
                         //Abrir base de datos
                         bd conexionBD = new bd(Medicion.this);
                         try {
+                            recorder.stop();
+                            String promedio = sacarPromedio(arrMedicion);
+                            Log.w("promedio", promedio);
                             conexionBD.abrir();
                             idPromedio = "" + conexionBD.registrar_promedio(fecha, promedio);
                             conexionBD.cerrar();
@@ -89,9 +95,11 @@ public class Medicion extends AppCompatActivity {
 
                         }
                         Intent irMonitorei = new Intent(Medicion.this, monitoreo.class);
-                        irMonitorei.putExtra("idPromedio",idPromedio);
+                        irMonitorei.putExtra("idPromedio", idPromedio);
                         startActivity(irMonitorei);
+                        finish();
                     } else {
+
                         if (contador >= 2) {
                             arrMedicion.add("" + df.format(amplitudeDb));
                             ArrayAdapter adaptadorMedicion = new ArrayAdapter(Medicion.this, android.R.layout.simple_spinner_item, arrMedicion);
@@ -99,8 +107,8 @@ public class Medicion extends AppCompatActivity {
                         }
 
                     }
-                    contador++;
 
+                    contador++;
 
                 }
             });
@@ -111,12 +119,15 @@ public class Medicion extends AppCompatActivity {
         String promedio = null;
         double suma = 0;
         int size = medicion.size();
-        for (int i = 0; i < size; i++){
-            suma = suma + (Double.parseDouble(medicion.get(i)));
+        for (int i = 0; i < size; i++) {
+            String numero = medicion.get(i).replace(',', '.');
+            suma = suma + (Double.parseDouble(numero));
         }
         double promediar = suma / size;
-        DecimalFormat df = new DecimalFormat("#.00");
-        promedio = df.format(promediar);
+        //DecimalFormat df = new DecimalFormat("#.00");
+        ///promedio = df.format(promediar);
+        promedio = "" + promediar;
+        Log.w("sacarpromedio", promedio);
         return promedio;
     }
 }
