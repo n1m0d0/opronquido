@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
                     conexion.cerrar();
                 }
 
-                ir = new Intent(MainActivity.this, configuracion.class);
+                ir = new Intent(MainActivity.this, formularioUsuario.class);
                 startActivity(ir);
                 finish();
             }
