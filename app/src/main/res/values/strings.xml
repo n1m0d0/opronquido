@@ -8,5 +8,22 @@
     <string name="botonResultado">Resultado</string>
     <string name="botonFinalizar">Finalizar</string>
     <string name="resultadoTitulo">Resultados</string>
+    <string name="title_activity_infovida">infovida</string>
+
+    <!-- Formulario de vida-->
+    <string name="Titulo_formulario_vida"><u>Formulario de Vida</u></string>
+    <string name="Tipo_Vivienda">Tipo de Vivienda:</string>
+    <string name="Tipo_Convivencia">Estado Civil:</string>
+    <string name="Horas_Trabajo">Horas de Trabajo:</string>
+    <string name="Ingreso_anual">Ingreso Anual:</string>
+    <string name="Hijos">Cantidad de Hijos:</string>
+    <!--Informacion medica-->
+    <string name="TituloinfoMedica"><u>Información Médica</u></string>
+    <string name="Afecciones">Afecciones:</string>
+    <string name="Alergias">Alergias:</string>
+    <string name="Tipo_Sangre">Tipo de Sangre:</string>
+
+
+
 
 </resources>

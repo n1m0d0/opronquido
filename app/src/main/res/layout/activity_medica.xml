@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".medica">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/TituloinfoMedica"
+                android:gravity="center"
+                android:typeface="serif"
+                android:textSize="@dimen/tamanho_titulo"
+
+                />
+
+            <!--Alergias-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="12"
+                android:layout_marginTop="@dimen/distancia"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="8"
+                    android:text="@string/Alergias"
+                    android:layout_marginLeft="@dimen/margenTexto"
+                    android:textSize="@dimen/tamanho_textos"
+                    />
+
+                <EditText
+                    android:id="@+id/etAlergias"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:layout_marginRight="@dimen/margenderecho"
+                    />
+            </LinearLayout>
+
+            <!--Afecciones-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="12"
+                android:layout_marginTop="@dimen/distancia"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="8"
+                    android:text="@string/Afecciones"
+                    android:layout_marginLeft="@dimen/margenTexto"
+                    android:textSize="@dimen/tamanho_textos"
+                    />
+
+                <EditText
+                    android:id="@+id/etAfecciones"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:inputType="number"
+                    android:layout_marginRight="@dimen/margenderecho"
+                    />
+
+            </LinearLayout>
+
+            <!--Tipo de Sangre-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="12"
+                android:layout_marginTop="@dimen/distancia"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="8"
+                    android:text="@string/Tipo_Sangre"
+                    android:layout_marginLeft="@dimen/margenTexto"
+                    android:textSize="@dimen/tamanho_textos"
+                    />
+
+                <Spinner
+                    android:id="@+id/spSangre"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:layout_marginRight="@dimen/margenderecho"
+                    />
+            </LinearLayout>
+
+
+
+        </LinearLayout>>
+    </ScrollView>
+
+</LinearLayout>
