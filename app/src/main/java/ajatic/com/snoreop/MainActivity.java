@@ -2,7 +2,6 @@ package ajatic.com.snoreop;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
@@ -35,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         validarPermisos();
 
@@ -60,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
                     conexion.cerrar();
                 }
 
-                ir = new Intent(MainActivity.this, formularioinfovida.class);
+                ir = new Intent(MainActivity.this, configuracion.class);
                 startActivity(ir);
                 finish();
             }

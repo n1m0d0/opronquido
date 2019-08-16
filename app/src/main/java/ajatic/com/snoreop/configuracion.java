@@ -59,8 +59,8 @@ public class configuracion extends AppCompatActivity {
         spTiempoInicio.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                bd conexion = new bd(configuracion.this);
-                try {
+                    bd conexion = new bd(configuracion.this);
+                    try {
                     conexion.abrir();
                     idTiempoInicial = conexion.buscar_tiempoInicial(tiempos.get(position));
                     conexion.cerrar();
