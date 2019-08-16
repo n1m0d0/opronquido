@@ -170,7 +170,7 @@ public class monitoreo extends AppCompatActivity {
                         bd conexion = new bd(monitoreo.this);
                         try {
                             conexion.abrir();
-                            conexion.registrar_monitoreo(idPromedio, medicion);
+                            conexion.registrar_monitoreo(idPromedio, "", "", medicion);
                             conexion.cerrar();
                         } catch (Exception e) {
                             e.printStackTrace();

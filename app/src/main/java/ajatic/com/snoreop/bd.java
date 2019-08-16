@@ -29,10 +29,44 @@ public class bd {
     //monitoreo
     private static final String idmonitoreo = "_id";
     private static final String promedioId = "promedioId";
+    private static final String capturaFecha = "capturaFecha";
+    private static final String capturaHora = "capturaHora";
     private static final String medicion = "medicion";
     //alerta
     private static final String idAlerta = "_id";
     private static final String monitoreoId = "monitoreo";
+    /*************************/
+    //usuario
+    private static final String idUsuario = "_id";
+    private static final String nombres = "nombres";
+    private static final String apellidos = "apellidos";
+    private static final String edad = "edad";
+    private static final String ocupacion = "ocupacion";
+    private static final String raza = "raza";
+    private static final String pais = "pais";
+    private static final String peso = "peso";
+    private static final String estado = "estado";
+    //contacto
+    private static final String idContacto = "_id";
+    private static final String usuarioIdContacto = "usuarioId";
+    private static final String email = "email";
+    private static final String telefono = "telefono";
+    //vida
+    private static final String idVida = "_id";
+    private static final String usuarioIdVida = "usuarioId";
+    private static final String vivienda = "vivienda";
+    private static final String convivencia = "convivencia";
+    private static final String horasTrabajo = "horasTrabajo";
+    private static final String ingresoAnual = "ingresoAnual";
+    private static final String hijos = "hijos";
+    private static final String mascotas = "mascotas";
+    //informacion medica
+    private static final String idInformacion = "idInformacion";
+    private static final String usuarioIdInformacion = "usuarioId";
+    private static final String alergias = "alergias";
+    private static final String afecciones = "afecciones";
+    private static final String tipoSangre = "tipoSangre";
+    /*************************/
     // BASE DE DATOS TABLAS
     private static final String BD = "BDRonquidos";
     private static final String sensibilidad = "sensibilidad";
@@ -41,6 +75,10 @@ public class bd {
     private static final String promedioDia = "promedioDia";
     private static final String monitoreo = "monitoreo";
     private static final String alerta = "alerta";
+    private static final String usuario = "usuario";
+    private static final String contacto = "contacto";
+    private static final String vida = "vida";
+    private static final String informacion = "informacion";
     private static final int VERSION_BD = 1;
 
     private BDHelper nHelper;
@@ -74,10 +112,46 @@ public class bd {
 
             db.execSQL("CREATE TABLE " + monitoreo + "(" + idmonitoreo
                     + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " + promedioId
-                    + " INTEGER NOT NULL, " + medicion + " TEXT NOT NULL);");
+                    + " INTEGER NOT NULL, " + capturaFecha
+                    + " TEXT NOT NULL, " + capturaHora
+                    + " TEXT NOT NULL, " + medicion + " TEXT NOT NULL);");
 
             db.execSQL("CREATE TABLE " + alerta + "(" + idAlerta
                     + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " + monitoreoId
+                    + " INTEGER NOT NULL);");
+
+            db.execSQL("CREATE TABLE " + usuario + "(" + idUsuario
+                    + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " + nombres
+                    + " TEXT NOT NULL, " + apellidos
+                    + " TEXT NOT NULL, " + edad
+                    + " TEXT NOT NULL, " + ocupacion
+                    + " TEXT NOT NULL, " + raza
+                    + " TEXT NOT NULL, " + pais
+                    + " TEXT NOT NULL, " + peso
+                    + " TEXT NOT NULL, " + estado
+                    + " INTEGER NOT NULL);");
+
+            db.execSQL("CREATE TABLE " + contacto + "(" + idContacto
+                    + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " + usuarioIdContacto
+                    + " INTEGER NOT NULL, " + email
+                    + " TEXT NOT NULL, " + telefono
+                    + " INTEGER NOT NULL);");
+
+            db.execSQL("CREATE TABLE " + vida + "(" + idVida
+                    + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " + usuarioIdVida
+                    + " INTEGER NOT NULL, " + vivienda
+                    + " TEXT NOT NULL, " + convivencia
+                    + " TEXT NOT NULL, " + horasTrabajo
+                    + " TEXT NOT NULL, " + ingresoAnual
+                    + " TEXT NOT NULL, " + hijos
+                    + " TEXT NOT NULL, " + mascotas
+                    + " INTEGER NOT NULL);");
+
+            db.execSQL("CREATE TABLE " + informacion + "(" + idInformacion
+                    + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " + usuarioIdInformacion
+                    + " INTEGER NOT NULL, " + alergias
+                    + " TEXT NOT NULL, " + afecciones
+                    + " TEXT NOT NULL, " + tipoSangre
                     + " INTEGER NOT NULL);");
 
         }
@@ -145,10 +219,11 @@ public class bd {
         return resultado;
 
     }
+
     // busca sencibilidad segun el nombre
     public String buscar_sensibilidad(String porcentaje) throws SQLException {
         String selectQuery = "SELECT * FROM " + sensibilidad + " WHERE "
-                + this.porcentaje + "='"+ porcentaje +"'";
+                + this.porcentaje + "='" + porcentaje + "'";
         Cursor cursor = nBD.rawQuery(selectQuery, null);
         String id = null;
 
@@ -166,7 +241,7 @@ public class bd {
     // busca sencibilidad segun el id
     public String buscar_sensibilidadId(String id) throws SQLException {
         String selectQuery = "SELECT * FROM " + sensibilidad + " WHERE "
-                + this.idSensibilidad + "='"+ id +"'";
+                + this.idSensibilidad + "='" + id + "'";
         Cursor cursor = nBD.rawQuery(selectQuery, null);
         String porcentaje = null;
 
@@ -190,6 +265,7 @@ public class bd {
         return nBD.insert(sensibilidad, null, cv);
 
     }
+
     //llenar sensibilidad
     public void llenar_sensibilidad()
             throws SQLException {
@@ -212,6 +288,7 @@ public class bd {
         nBD.insert(sensibilidad, null, cv4);
 
     }
+
     //tiempo inicial
     //devuelve todos los registros de la tabla tiempoInicial
     public ArrayList<String> tiempoInicial() throws SQLException {
@@ -234,7 +311,7 @@ public class bd {
     // busca TiempoInicial segun el nombre;
     public String buscar_tiempoInicial(String tiempo) throws SQLException {
         String selectQuery = "SELECT * FROM " + tiempoInicial + " WHERE "
-                + this.tiempo + "='"+ tiempo +"'";
+                + this.tiempo + "='" + tiempo + "'";
         Cursor cursor = nBD.rawQuery(selectQuery, null);
         String id = null;
 
@@ -252,7 +329,7 @@ public class bd {
     // busca TiempoInicial segun el id
     public String buscar_TiempoInicialId(String id) throws SQLException {
         String selectQuery = "SELECT * FROM " + tiempoInicial + " WHERE "
-                + this.idTiempoInicial + "='"+ id +"'";
+                + this.idTiempoInicial + "='" + id + "'";
         Cursor cursor = nBD.rawQuery(selectQuery, null);
         String tiempo = null;
 
@@ -276,6 +353,7 @@ public class bd {
         return nBD.insert(tiempoInicial, null, cv);
 
     }
+
     //llenar tiempoInicial
     public void llenar_tiempoInicial()
             throws SQLException {
@@ -317,6 +395,7 @@ public class bd {
         nBD.insert(configuracion, null, cv1);
 
     }
+
     //actualizar configuracion
     public void modificar_configuracion(String sensibilidadId, String tiempoInicialId) throws SQLException {
         // TODO Auto-generated method stub
@@ -327,6 +406,7 @@ public class bd {
         nBD.update(configuracion, cv, idConfiguracion + "='" + 1 + "'", null);
 
     }
+
     //promedio
     //devuelve todos los registros de la tabla promedio
     public Cursor promedio() throws SQLException {
@@ -339,7 +419,7 @@ public class bd {
     // busca Promedio segun el id
     public String buscar_Promedio(String id) throws SQLException {
         String selectQuery = "SELECT * FROM " + promedioDia + " WHERE "
-                + this.idPromedio + "='"+ id +"'";
+                + this.idPromedio + "='" + id + "'";
         Cursor cursor = nBD.rawQuery(selectQuery, null);
         String promedio = null;
 
@@ -364,6 +444,7 @@ public class bd {
         return nBD.insert(promedioDia, null, cv);
 
     }
+
     //monitoreo
     //devuelve todos los registros de la tabla monitoreo
     public Cursor monitoreo() throws SQLException {
@@ -374,14 +455,73 @@ public class bd {
     }
 
     //registra la monitoreo
-    public long registrar_monitoreo(String promedioId, String medicion)
+    public long registrar_monitoreo(String promedioId, String capturaFecha, String capturaHora, String medicion)
             throws SQLException {
         // TODO Auto-generated method stub
         ContentValues cv = new ContentValues();
         cv.put(this.promedioId, promedioId);
+        cv.put(this.capturaFecha, capturaFecha);
+        cv.put(this.capturaHora, capturaHora);
         cv.put(this.medicion, medicion);
         return nBD.insert(monitoreo, null, cv);
 
     }
 
+    //usuario
+    //registrar usuarios
+    public long registrar_usuario(String nombres, String apellidos, String edad, String ocupacion, String raza, String pais, String peso, String estado)
+            throws SQLException {
+        // TODO Auto-generated method stub
+        ContentValues cv = new ContentValues();
+        cv.put(this.nombres, nombres);
+        cv.put(this.apellidos, apellidos);
+        cv.put(this.edad, edad);
+        cv.put(this.ocupacion, ocupacion);
+        cv.put(this.raza, raza);
+        cv.put(this.pais, pais);
+        cv.put(this.peso, peso);
+        cv.put(this.estado, estado);
+        return nBD.insert(usuario, null, cv);
+    }
+
+    //cantacto
+    //registrar contacto
+    public long registrar_contacto(long usuarioIdContacto , String email, String telefono)
+            throws SQLException {
+        // TODO Auto-generated method stub
+        ContentValues cv = new ContentValues();
+        cv.put(this.usuarioIdContacto, usuarioIdContacto);
+        cv.put(this.email, email);
+        cv.put(this.telefono, telefono);
+        return nBD.insert(contacto, null, cv);
+    }
+
+    //vida
+    //registrar vida
+    public long registrar_vida(long usuarioIdVida , String vivienda, String convivencia, String horasTrabajo, String ingresoAnual, String hijos, String mascotas)
+            throws SQLException {
+        // TODO Auto-generated method stub
+        ContentValues cv = new ContentValues();
+        cv.put(this.usuarioIdVida, usuarioIdVida);
+        cv.put(this.vivienda, vivienda);
+        cv.put(this.convivencia, convivencia);
+        cv.put(this.horasTrabajo, horasTrabajo);
+        cv.put(this.ingresoAnual, ingresoAnual);
+        cv.put(this.hijos, hijos);
+        cv.put(this.mascotas, mascotas);
+        return nBD.insert(vida, null, cv);
+    }
+
+    //vida
+    //registrar vida
+    public long registrar_informacion(long usuarioIdInformacion , String alergias, String afecciones, String tipoSangre)
+            throws SQLException {
+        // TODO Auto-generated method stub
+        ContentValues cv = new ContentValues();
+        cv.put(this.usuarioIdInformacion, usuarioIdInformacion);
+        cv.put(this.alergias, alergias);
+        cv.put(this.afecciones, afecciones);
+        cv.put(this.tipoSangre , tipoSangre );
+        return nBD.insert(informacion, null, cv);
+    }
 }
