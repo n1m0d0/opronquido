@@ -48,10 +48,8 @@ public class configuracion extends AppCompatActivity {
             ArrayAdapter<String> adatadorSensibilidad = new ArrayAdapter<String>(configuracion.this,android.R.layout.simple_spinner_item,sensibilidad);
             spSensibilidad.setAdapter(adatadorSensibilidad);
             int posicionTiempoInicial = Integer.parseInt(cursorConfiguracion.getString(2)) - 1;
-            Log.w("posicionTiempoInicial", "" + posicionTiempoInicial);
             spTiempoInicio.setSelection(posicionTiempoInicial);
             int posicionSensibilidad = Integer.parseInt(cursorConfiguracion.getString(1)) - 1;
-            Log.w("posicionSensibilidad", "" + posicionSensibilidad);
             spSensibilidad.setSelection(posicionSensibilidad);
             conexion.cerrar();
         } catch (Exception e) {
@@ -69,7 +67,7 @@ public class configuracion extends AppCompatActivity {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                Log.w("idTiempoInicial", idTiempoInicial);
+                //Log.w("idTiempoInicial", idTiempoInicial);
             }
 
             @Override
@@ -125,3 +123,9 @@ public class configuracion extends AppCompatActivity {
         });
     }
 }
+
+
+
+
+
+

@@ -14,7 +14,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".tiempoespera"></activity>
+        <activity android:name=".medica"></activity>
+        <activity android:name=".formularioinfovida" />
+        <activity android:name=".tiempoespera" />
         <activity android:name=".resultados" />
         <activity android:name=".monitoreo" />
         <activity android:name=".configuracion" />
