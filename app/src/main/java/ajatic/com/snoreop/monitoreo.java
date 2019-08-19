@@ -165,7 +165,7 @@ public class monitoreo extends AppCompatActivity {
                     //Realizacion de comparacion del valor obtenido en db con el promedio
                     if (promedio <= amplitudeDb) {
                         alertas.add(df.format(amplitudeDb));
-                        ArrayAdapter<String> adaptadorMonitoreo = new ArrayAdapter<String>(monitoreo.this, android.R.layout.simple_spinner_item, alertas);
+                        ArrayAdapter<String> adaptadorMonitoreo = new ArrayAdapter<String>(monitoreo.this, R.layout.listview, alertas);
                         lvMonitoreo.setAdapter(adaptadorMonitoreo);
                         bd conexion = new bd(monitoreo.this);
                         try {

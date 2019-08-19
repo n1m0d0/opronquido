@@ -3,6 +3,7 @@
     android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="#102c54"
     android:layout_height="match_parent"
     android:gravity="center">
 
@@ -20,7 +21,8 @@
             android:layout_height="match_parent"
             android:layout_margin="@dimen/espacioentretextos"
             android:layout_weight="6"
-            android:text="@string/confmedicion"/>
+            android:text="@string/confmedicion"
+            android:textColor="#FFFFFF" />
 
         <ListView
             android:id="@+id/lvMediciones"
@@ -36,7 +38,8 @@
             android:layout_height="match_parent"
             android:layout_margin="@dimen/espacioentretextos"
             android:layout_weight="6"
-            android:text="@string/confpromedio" />
+            android:text="@string/confpromedio"
+            android:textColor="#FFFFFF" />
     </LinearLayout>
 
 </LinearLayout>
