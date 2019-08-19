@@ -68,10 +68,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
-                    android:gravity="center"
                     android:hint="Ingrese su nombre"
                     android:inputType="textPersonName"
-                    android:textColorHint="#FFFFFF"
+                    android:textColorHint="@color/ColorText"
                     android:textColor="@color/ColorText"/>
 
             </LinearLayout>
@@ -95,10 +94,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:gravity="center"
                     android:hint="Ingrese el apelido"
                     android:inputType="textPersonName"
-                    android:textColorHint="#FFFFFF" />
+                    android:textColorHint="@color/ColorText"
+                    android:textColor="@color/ColorText"/>
 
             </LinearLayout>
 
@@ -122,10 +121,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
-                    android:gravity="center"
                     android:hint="Ingrese la edad"
                     android:inputType="textPersonName"
-                    android:textColorHint="#FFFFFF" />
+                    android:textColorHint="@color/ColorText"
+                    android:textColor="@color/ColorText"/>
 
             </LinearLayout>
 
@@ -149,10 +148,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:gravity="center"
                     android:hint="Ingrese la ocupacion"
                     android:inputType="textPersonName"
-                    android:textColorHint="#FFFFFF" />
+                    android:textColorHint="@color/ColorText"
+                    android:textColor="@color/ColorText"/>
 
             </LinearLayout>
 
@@ -176,10 +175,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:gravity="center"
                     android:hint="Ingrese su raza"
                     android:inputType="textPersonName"
-                    android:textColorHint="#FFFFFF" />
+                    android:textColorHint="@color/ColorText"
+                    android:textColor="@color/ColorText"/>
 
 
             </LinearLayout>
@@ -203,10 +202,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:gravity="center"
                     android:hint="Ingrese el pais"
                     android:inputType="textPersonName"
-                    android:textColorHint="#FFFFFF" />
+                    android:textColorHint="@color/ColorText"
+                    android:textColor="@color/ColorText"/>
             </LinearLayout>
 
             <LinearLayout
@@ -228,10 +227,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:gravity="center"
                     android:hint="Ingrese su peso"
                     android:inputType="textPersonName"
-                    android:textColorHint="#FFFFFF" />
+                    android:textColorHint="@color/ColorText"
+                    android:textColor="@color/ColorText"/>
 
             </LinearLayout>
 
@@ -254,10 +253,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:gravity="center"
                     android:hint="Ingrese su status"
                     android:inputType="textPersonName"
-                    android:textColorHint="#FFFFFF" />
+                    android:textColorHint="@color/ColorText"
+                    android:textColor="@color/ColorText"/>
 
             </LinearLayout>
 
@@ -280,11 +279,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:gravity="center"
                     android:hint="Ingrese su email"
                     android:inputType="textPersonName"
-                    android:textColorHint="#FFFFFF"
-                    />
+                    android:textColorHint="@color/ColorText"
+                    android:textColor="@color/ColorText"/>
 
             </LinearLayout>
 
@@ -307,21 +305,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:gravity="center"
                     android:hint="Ingrese su telefono"
                     android:inputType="textPersonName"
-                    android:textColorHint="#FFFFFF" />
+                    android:textColorHint="@color/ColorText"
+                    android:textColor="@color/ColorText"/>
             </LinearLayout>
 
 
             <Button
                 android:id="@+id/btnRegistrar"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:background="@drawable/button_registrar"
                 android:text="registrar"
-                android:textColor="#FFFFFF" />
+                android:layout_margin="@dimen/espaciotextos"/>
 
         </LinearLayout>
 
