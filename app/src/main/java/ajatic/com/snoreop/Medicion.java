@@ -90,14 +90,15 @@ public class Medicion extends AppCompatActivity {
                             conexionBD.abrir();
                             idPromedio = "" + conexionBD.registrar_promedio(fecha, promedio);
                             conexionBD.cerrar();
+                            Intent irMonitorei = new Intent(Medicion.this, monitoreo.class);
+                            irMonitorei.putExtra("idPromedio", idPromedio);
+                            startActivity(irMonitorei);
+                            finish();
                         } catch (Exception e) {
                             e.printStackTrace();
 
                         }
-                        Intent irMonitorei = new Intent(Medicion.this, monitoreo.class);
-                        irMonitorei.putExtra("idPromedio", idPromedio);
-                        startActivity(irMonitorei);
-                        finish();
+
                     } else {
 
                         if (contador >= 2) {

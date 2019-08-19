@@ -19,179 +19,168 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/Titulo_formulario_vida"
                 android:gravity="center"
-                android:typeface="serif"
+                android:text="@string/Titulo_formulario_vida"
                 android:textSize="@dimen/tamanho_titulo"
+                android:typeface="serif"
 
                 />
 
-                    <!--Tipo Vivienda-->
+            <!--Tipo Vivienda-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="12"
                 android:layout_marginTop="@dimen/distancia"
-                 >
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="8"
-                        android:text="@string/Tipo_Vivienda"
-                        android:layout_marginLeft="@dimen/margenTexto"
-
-                        />
-
-                    <EditText
-                        android:id="@+id/etVivienda"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="4"
-                        android:layout_marginRight="@dimen/margenderecho"
-                        />
-            </LinearLayout>
-
-                            <!--Estado Civil-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:weightSum="12"
-                android:layout_marginTop="@dimen/distancia"
-                >
+                android:weightSum="12">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="8"
-                    android:text="@string/Tipo_Convivencia"
                     android:layout_marginLeft="@dimen/margenTexto"
+                    android:layout_weight="8"
+                    android:text="@string/Tipo_Vivienda"
+
                     />
+
+                <EditText
+                    android:id="@+id/etVivienda"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/margenderecho"
+                    android:layout_weight="4" />
+            </LinearLayout>
+
+            <!--Estado Civil-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/distancia"
+                android:orientation="horizontal"
+                android:weightSum="12">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margenTexto"
+                    android:layout_weight="8"
+                    android:text="@string/Tipo_Convivencia" />
 
                 <Spinner
                     android:id="@+id/spConvivencia"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="4"
                     android:layout_marginRight="@dimen/margenderecho"
-                    android:spinnerMode="dropdown"
-                    />
+                    android:layout_weight="4"
+                    android:spinnerMode="dropdown" />
 
             </LinearLayout>
 
-                        <!--Horas de Trabajo-->
+            <!--Horas de Trabajo-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="12"
                 android:layout_marginTop="@dimen/distancia"
-                >
+                android:orientation="horizontal"
+                android:weightSum="12">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="8"
-                    android:text="@string/Horas_Trabajo"
                     android:layout_marginLeft="@dimen/margenTexto"
-                    />
+                    android:layout_weight="8"
+                    android:text="@string/Horas_Trabajo" />
 
                 <EditText
                     android:id="@+id/etHorasTrabajo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="4"
-                    android:inputType="number"
                     android:layout_marginRight="@dimen/margenderecho"
-                    />
+                    android:layout_weight="4"
+                    android:inputType="number" />
             </LinearLayout>
 
-                            <!--Ingreso Anual-->
+            <!--Ingreso Anual-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="12"
                 android:layout_marginTop="@dimen/distancia"
-                >
+                android:orientation="horizontal"
+                android:weightSum="12">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="8"
-                    android:text="@string/Ingreso_anual"
                     android:layout_marginLeft="@dimen/margenTexto"
-                    />
+                    android:layout_weight="8"
+                    android:text="@string/Ingreso_anual" />
 
                 <EditText
                     android:id="@+id/etIngresoAnual"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="4"
-                    android:inputType="numberDecimal"
                     android:layout_marginRight="@dimen/margenderecho"
-                    />
+                    android:layout_weight="4"
+                    android:inputType="numberDecimal" />
             </LinearLayout>
 
-                           <!--Número de Hijos-->
+            <!--Número de Hijos-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="12"
                 android:layout_marginTop="@dimen/distancia"
-                >
+                android:orientation="horizontal"
+                android:weightSum="12">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="8"
-                    android:text="@string/Hijos"
                     android:layout_marginLeft="@dimen/margenTexto"
-                    />
+                    android:layout_weight="8"
+                    android:text="@string/Hijos" />
 
                 <EditText
                     android:id="@+id/etHijos"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="4"
-                    android:inputType="number"
                     android:layout_marginRight="@dimen/margenderecho"
-                    />
+                    android:layout_weight="4"
+                    android:inputType="number" />
             </LinearLayout>
 
 
-                            <!--Mascota-->
+            <!--Mascota-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="12"
                 android:layout_marginTop="@dimen/distancia"
-                >
+                android:orientation="horizontal"
+                android:weightSum="12">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="8"
-                    android:text="Mascota"
                     android:layout_marginLeft="@dimen/margenTexto"
-                    />
+                    android:layout_weight="8"
+                    android:text="Mascota" />
 
                 <Spinner
                     android:id="@+id/spMascota"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="4"
                     android:layout_marginRight="@dimen/margenderecho"
-                    />
+                    android:layout_weight="4" />
             </LinearLayout>
 
+            <Button
+                android:id="@+id/btnGuardarVida"
+                android:text="Guardar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
 
-        </LinearLayout>>
+        </LinearLayout>
+
     </ScrollView>
 
 </LinearLayout>

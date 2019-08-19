@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ajatic.com.snoreop">
 
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
@@ -12,10 +14,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".medica"></activity>
+        <activity android:name=".medica" />
         <activity android:name=".formularioinfovida" />
-        <activity android:name=".formularioUsuario"></activity>
-        <activity android:name=".tiempoespera"></activity>
+        <activity android:name=".formularioUsuario" />
+        <activity android:name=".tiempoespera" />
         <activity android:name=".resultados" />
         <activity android:name=".monitoreo" />
         <activity android:name=".configuracion" />

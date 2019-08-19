@@ -8,319 +8,331 @@
     android:orientation="vertical"
     tools:context=".formularioUsuario">
 
-
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginRight="30dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:padding="@dimen/Padding10"
-        android:weightSum="10">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/tvTitulo"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="0dp"
-            android:layout_weight="2"
-            android:gravity="center"
-            android:text="FORMULARIO USUARIO"
-            android:textColor="#FFFFFF" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="56dp"
-            android:layout_weight="8"
-            android:src="@drawable/usuario" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginRight="30dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="@dimen/Padding10"
+                android:weightSum="10">
 
+                <TextView
+                    android:id="@+id/tvTitulo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:text="FORMULARIO USUARIO"
+                    android:textColor="#FFFFFF" />
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="@dimen/Padding10"
-        android:weightSum="10">
-
-        <TextView
-            android:id="@+id/tvNombre"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="8"
-            android:text="Nombre:"
-            android:textColor="#FFFFFF" />
-
-        <EditText
-            android:id="@+id/etNombre"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:background="@drawable/shape"
-            android:gravity="center"
-            android:hint="Ingrese su nombre"
-            android:inputType="textPersonName"
-            android:textColorHint="#FFFFFF" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="@dimen/Padding10"
-        android:weightSum="10">
-
-        <TextView
-            android:id="@+id/tvApellido"
-            android:layout_width="78dp"
-            android:layout_height="43dp"
-            android:text="Apellido:"
-            android:textColor="#FFFFFF" />
-
-        <EditText
-            android:id="@+id/etApellido"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/shape"
-            android:ems="10"
-            android:gravity="center"
-            android:hint="Ingrese el apelido"
-            android:inputType="textPersonName"
-            android:textColorHint="#FFFFFF" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="@dimen/Padding10"
-        android:weightSum="10">
-
-        <TextView
-            android:id="@+id/tvEdad"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="8"
-            android:text="Edad:"
-            android:textColor="#FFFFFF" />
-
-        <EditText
-            android:id="@+id/etEdad"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:background="@drawable/shape"
-            android:gravity="center"
-            android:hint="Ingrese la edad"
-            android:inputType="textPersonName"
-            android:textColorHint="#FFFFFF" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="@dimen/Padding10"
-        android:weightSum="10">
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="56dp"
+                    android:layout_weight="8"
+                    android:src="@drawable/usuario" />
 
 
-        <TextView
-            android:id="@+id/tvOcupacion"
-            android:layout_width="79dp"
-            android:layout_height="30dp"
-            android:text="Ocupacion:"
-            android:textColor="#FFFFFF" />
+            </LinearLayout>
 
-        <EditText
-            android:id="@+id/etOcupacion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/shape"
-            android:ems="10"
-            android:gravity="center"
-            android:hint="Ingrese la ocupacion"
-            android:inputType="textPersonName"
-            android:textColorHint="#FFFFFF" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/Padding10"
+                android:weightSum="10">
 
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/tvNombre"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="8"
+                    android:text="Nombre:"
+                    android:textColor="#FFFFFF" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="@dimen/Padding10"
-        android:weightSum="10">
+                <EditText
+                    android:id="@+id/etNombre"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:background="@drawable/shape"
+                    android:gravity="center"
+                    android:hint="Ingrese su nombre"
+                    android:inputType="textPersonName"
+                    android:textColorHint="#FFFFFF" />
 
+            </LinearLayout>
 
-        <TextView
-            android:id="@+id/tvRaza"
-            android:layout_width="70dp"
-            android:layout_height="30dp"
-            android:text="Raza:"
-            android:textColor="#FFFFFF" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/Padding10"
+                android:weightSum="10">
 
-        <EditText
-            android:id="@+id/etRaza"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/shape"
-            android:ems="10"
-            android:gravity="center"
-            android:hint="Ingrese su raza"
-            android:inputType="textPersonName"
-            android:textColorHint="#FFFFFF" />
+                <TextView
+                    android:id="@+id/tvApellido"
+                    android:layout_width="78dp"
+                    android:layout_height="43dp"
+                    android:text="Apellido:"
+                    android:textColor="#FFFFFF" />
 
+                <EditText
+                    android:id="@+id/etApellido"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="Ingrese el apelido"
+                    android:inputType="textPersonName"
+                    android:textColorHint="#FFFFFF" />
 
-    </LinearLayout>
+            </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="@dimen/Padding10"
-        android:weightSum="10">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/Padding10"
+                android:weightSum="10">
 
-        <TextView
-            android:id="@+id/tvPais"
-            android:layout_width="71dp"
-            android:layout_height="33dp"
-            android:text="Pais:"
-            android:textColor="#FFFFFF" />
+                <TextView
+                    android:id="@+id/tvEdad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="8"
+                    android:text="Edad:"
+                    android:textColor="#FFFFFF" />
 
-        <EditText
-            android:id="@+id/etPais"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/shape"
-            android:ems="10"
-            android:gravity="center"
-            android:hint="Ingrese el pais"
-            android:inputType="textPersonName"
-            android:textColorHint="#FFFFFF" />
-    </LinearLayout>
+                <EditText
+                    android:id="@+id/etEdad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:background="@drawable/shape"
+                    android:gravity="center"
+                    android:hint="Ingrese la edad"
+                    android:inputType="textPersonName"
+                    android:textColorHint="#FFFFFF" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="@dimen/Padding10"
-        android:weightSum="10">
+            </LinearLayout>
 
-        <TextView
-            android:id="@+id/tvPeso"
-            android:layout_width="70dp"
-            android:layout_height="36dp"
-            android:text="Peso"
-            android:textColor="#FFFFFF" />
-
-        <EditText
-            android:id="@+id/etPeso"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/shape"
-            android:ems="10"
-            android:gravity="center"
-            android:hint="Ingrese su peso"
-            android:inputType="textPersonName"
-            android:textColorHint="#FFFFFF" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="@dimen/Padding10"
-        android:weightSum="10">
-
-        <TextView
-            android:id="@+id/tvEstatus"
-            android:layout_width="76dp"
-            android:layout_height="32dp"
-            android:text="Estado:"
-            android:textColor="#FFFFFF" />
-
-        <EditText
-            android:id="@+id/etEstatus"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/shape"
-            android:ems="10"
-            android:gravity="center"
-            android:hint="Ingrese su status"
-            android:inputType="textPersonName"
-            android:textColorHint="#FFFFFF" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="@dimen/Padding10"
-        android:weightSum="10">
-
-        <TextView
-            android:id="@+id/tvEmail"
-            android:layout_width="65dp"
-            android:layout_height="34dp"
-            android:text="Email:"
-            android:textColor="#FFFFFF" />
-
-        <EditText
-            android:id="@+id/etEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/shape"
-            android:ems="10"
-            android:gravity="center"
-            android:hint="Ingrese su email"
-            android:inputType="textPersonName"
-            android:textColorHint="#FFFFFF" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="@dimen/Padding10"
-        android:weightSum="10">
-
-        <TextView
-            android:id="@+id/tvTelefono"
-            android:layout_width="70dp"
-            android:layout_height="36dp"
-            android:text="Telefono:"
-            android:textColor="#FFFFFF" />
-
-        <EditText
-            android:id="@+id/etTelefono"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/shape"
-            android:ems="10"
-            android:gravity="center"
-            android:hint="Ingrese su telefono"
-            android:inputType="textPersonName"
-            android:textColorHint="#FFFFFF" />
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/Padding10"
+                android:weightSum="10">
 
 
-    <Button
-        android:id="@+id/btnRegistrar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/button_registrar"
-        android:text="registrar"
-        android:layout_gravity="center"
-        android:textColor="#FFFFFF" />
+                <TextView
+                    android:id="@+id/tvOcupacion"
+                    android:layout_width="79dp"
+                    android:layout_height="30dp"
+                    android:text="Ocupacion:"
+                    android:textColor="#FFFFFF" />
+
+                <EditText
+                    android:id="@+id/etOcupacion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="Ingrese la ocupacion"
+                    android:inputType="textPersonName"
+                    android:textColorHint="#FFFFFF" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/Padding10"
+                android:weightSum="10">
+
+
+                <TextView
+                    android:id="@+id/tvRaza"
+                    android:layout_width="70dp"
+                    android:layout_height="30dp"
+                    android:text="Raza:"
+                    android:textColor="#FFFFFF" />
+
+                <EditText
+                    android:id="@+id/etRaza"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="Ingrese su raza"
+                    android:inputType="textPersonName"
+                    android:textColorHint="#FFFFFF" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/Padding10"
+                android:weightSum="10">
+
+                <TextView
+                    android:id="@+id/tvPais"
+                    android:layout_width="71dp"
+                    android:layout_height="33dp"
+                    android:text="Pais:"
+                    android:textColor="#FFFFFF" />
+
+                <EditText
+                    android:id="@+id/etPais"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="Ingrese el pais"
+                    android:inputType="textPersonName"
+                    android:textColorHint="#FFFFFF" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/Padding10"
+                android:weightSum="10">
+
+                <TextView
+                    android:id="@+id/tvPeso"
+                    android:layout_width="70dp"
+                    android:layout_height="36dp"
+                    android:text="Peso"
+                    android:textColor="#FFFFFF" />
+
+                <EditText
+                    android:id="@+id/etPeso"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="Ingrese su peso"
+                    android:inputType="textPersonName"
+                    android:textColorHint="#FFFFFF" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/Padding10"
+                android:weightSum="10">
+
+                <TextView
+                    android:id="@+id/tvEstatus"
+                    android:layout_width="76dp"
+                    android:layout_height="32dp"
+                    android:text="Estado:"
+                    android:textColor="#FFFFFF" />
+
+                <EditText
+                    android:id="@+id/etEstatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="Ingrese su status"
+                    android:inputType="textPersonName"
+                    android:textColorHint="#FFFFFF" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/Padding10"
+                android:weightSum="10">
+
+                <TextView
+                    android:id="@+id/tvEmail"
+                    android:layout_width="65dp"
+                    android:layout_height="34dp"
+                    android:text="Email:"
+                    android:textColor="#FFFFFF" />
+
+                <EditText
+                    android:id="@+id/etEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="Ingrese su email"
+                    android:inputType="textPersonName"
+                    android:textColorHint="#FFFFFF" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/Padding10"
+                android:weightSum="10">
+
+                <TextView
+                    android:id="@+id/tvTelefono"
+                    android:layout_width="70dp"
+                    android:layout_height="36dp"
+                    android:text="Telefono:"
+                    android:textColor="#FFFFFF" />
+
+                <EditText
+                    android:id="@+id/etTelefono"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="Ingrese su telefono"
+                    android:inputType="textPersonName"
+                    android:textColorHint="#FFFFFF" />
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/btnRegistrar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/button_registrar"
+                android:text="registrar"
+                android:textColor="#FFFFFF" />
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>
