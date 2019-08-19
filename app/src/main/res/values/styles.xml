@@ -11,7 +11,7 @@
     <style name="logo">
         <item name="android:layout_width">@dimen/logoWidth</item>
         <item name="android:layout_height">@dimen/logoHeight</item>
-        <item name="android:src">@drawable/zzz</item>
+        <item name="android:src">@drawable/restmore</item>
         <item name="android:contentDescription">@string/logo</item>
         <item name="android:layout_margin">@dimen/margin</item>
     </style>
