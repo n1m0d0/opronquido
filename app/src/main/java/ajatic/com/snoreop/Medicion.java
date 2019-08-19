@@ -103,7 +103,7 @@ public class Medicion extends AppCompatActivity {
 
                         if (contador >= 2) {
                             arrMedicion.add("" + df.format(amplitudeDb));
-                            ArrayAdapter adaptadorMedicion = new ArrayAdapter(Medicion.this, android.R.layout.simple_spinner_item, arrMedicion);
+                            ArrayAdapter adaptadorMedicion = new ArrayAdapter(Medicion.this, R.layout.lv_blanco, arrMedicion);
                             lvMediciones.setAdapter(adaptadorMedicion);
                         }
 

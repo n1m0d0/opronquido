@@ -39,10 +39,10 @@ public class formularioinfovida extends AppCompatActivity {
         etIngresoAnual = findViewById(R.id.etIngresoAnual);
         etHijos = findViewById(R.id.etHijos);
 
-        final ArrayAdapter eCivil = new ArrayAdapter(this,android.R.layout.simple_spinner_item,conviencia);
+        final ArrayAdapter eCivil = new ArrayAdapter(this,R.layout.spinner_item,conviencia);
         spConvivencia.setAdapter(eCivil);
 
-        ArrayAdapter pet = new ArrayAdapter(this,android.R.layout.simple_spinner_item,mascota);
+        ArrayAdapter pet = new ArrayAdapter(this,R.layout.spinner_item,mascota);
         spMascota.setAdapter(pet);
 
         spConvivencia.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

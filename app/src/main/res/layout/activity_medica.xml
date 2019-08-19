@@ -9,7 +9,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/ColorBody">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -23,6 +24,7 @@
                 android:gravity="center"
                 android:typeface="serif"
                 android:textSize="@dimen/tamanho_titulo"
+                android:textColor="@color/ColorText"
 
                 />
 
@@ -42,6 +44,7 @@
                     android:text="@string/Alergias"
                     android:layout_marginLeft="@dimen/margenTexto"
                     android:textSize="@dimen/tamanho_textos"
+                    android:textColor="@color/ColorText"
                     />
 
                 <EditText
@@ -50,6 +53,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="4"
                     android:layout_marginRight="@dimen/margenderecho"
+                    android:textColor="@color/ColorText"
                     />
             </LinearLayout>
 
@@ -69,6 +73,7 @@
                     android:text="@string/Afecciones"
                     android:layout_marginLeft="@dimen/margenTexto"
                     android:textSize="@dimen/tamanho_textos"
+                    android:textColor="@color/ColorText"
                     />
 
                 <EditText
@@ -78,6 +83,7 @@
                     android:layout_weight="4"
                     android:inputType="text"
                     android:layout_marginRight="@dimen/margenderecho"
+                    android:textColor="@color/ColorText"
                     />
 
             </LinearLayout>
@@ -98,6 +104,7 @@
                     android:text="@string/Tipo_Sangre"
                     android:layout_marginLeft="@dimen/margenTexto"
                     android:textSize="@dimen/tamanho_textos"
+                    android:textColor="@color/ColorText"
                     />
 
                 <Spinner
@@ -106,6 +113,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="4"
                     android:layout_marginRight="@dimen/margenderecho"
+                    android:textColor="@color/ColorText"
                     />
             </LinearLayout>
 

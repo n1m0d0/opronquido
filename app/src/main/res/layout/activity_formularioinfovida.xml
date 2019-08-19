@@ -9,11 +9,13 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/ColorBody">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/ColorBody"
             android:orientation="vertical">
 
             <TextView
@@ -21,10 +23,9 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/Titulo_formulario_vida"
+                android:textColor="@color/ColorText"
                 android:textSize="@dimen/tamanho_titulo"
-                android:typeface="serif"
-
-                />
+                android:typeface="serif" />
 
             <!--Tipo Vivienda-->
             <LinearLayout
@@ -40,15 +41,15 @@
                     android:layout_marginLeft="@dimen/margenTexto"
                     android:layout_weight="8"
                     android:text="@string/Tipo_Vivienda"
-
-                    />
+                    android:textColor="@color/ColorText" />
 
                 <EditText
                     android:id="@+id/etVivienda"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="@dimen/margenderecho"
-                    android:layout_weight="4" />
+                    android:layout_weight="4"
+                    android:textColor="@color/ColorText" />
             </LinearLayout>
 
             <!--Estado Civil-->
@@ -64,7 +65,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/margenTexto"
                     android:layout_weight="8"
-                    android:text="@string/Tipo_Convivencia" />
+                    android:text="@string/Tipo_Convivencia"
+                    android:textColor="@color/ColorText" />
 
                 <Spinner
                     android:id="@+id/spConvivencia"
@@ -72,7 +74,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="@dimen/margenderecho"
                     android:layout_weight="4"
-                    android:spinnerMode="dropdown" />
+                    android:spinnerMode="dropdown"
+                    android:textColor="@color/ColorText" />
 
             </LinearLayout>
 
@@ -89,7 +92,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/margenTexto"
                     android:layout_weight="8"
-                    android:text="@string/Horas_Trabajo" />
+                    android:text="@string/Horas_Trabajo"
+                    android:textColor="@color/ColorText" />
 
                 <EditText
                     android:id="@+id/etHorasTrabajo"
@@ -97,7 +101,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="@dimen/margenderecho"
                     android:layout_weight="4"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:textColor="@color/ColorText" />
             </LinearLayout>
 
             <!--Ingreso Anual-->
@@ -113,7 +118,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/margenTexto"
                     android:layout_weight="8"
-                    android:text="@string/Ingreso_anual" />
+                    android:text="@string/Ingreso_anual"
+                    android:textColor="@color/ColorText" />
 
                 <EditText
                     android:id="@+id/etIngresoAnual"
@@ -121,7 +127,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="@dimen/margenderecho"
                     android:layout_weight="4"
-                    android:inputType="numberDecimal" />
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/ColorText" />
             </LinearLayout>
 
             <!--Número de Hijos-->
@@ -137,7 +144,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/margenTexto"
                     android:layout_weight="8"
-                    android:text="@string/Hijos" />
+                    android:text="@string/Hijos"
+                    android:textColor="@color/ColorText" />
 
                 <EditText
                     android:id="@+id/etHijos"
@@ -145,7 +153,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="@dimen/margenderecho"
                     android:layout_weight="4"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:textColor="@color/ColorText" />
             </LinearLayout>
 
 
@@ -162,21 +171,23 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/margenTexto"
                     android:layout_weight="8"
-                    android:text="Mascota" />
+                    android:text="Mascota"
+                    android:textColor="@color/ColorText" />
 
                 <Spinner
                     android:id="@+id/spMascota"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="@dimen/margenderecho"
-                    android:layout_weight="4" />
+                    android:layout_weight="4"
+                    android:textColor="@color/ColorText" />
             </LinearLayout>
 
             <Button
                 android:id="@+id/btnGuardarVida"
-                android:text="Guardar"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:text="Guardar" />
 
 
         </LinearLayout>
