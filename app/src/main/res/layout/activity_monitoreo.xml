@@ -4,41 +4,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    android:background="@color/ColorBody"
+    android:orientation="vertical">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/monitoreoTitulo"
-        android:gravity="center"
         android:layout_marginTop="@dimen/margentitulos"
-        android:textSize="@dimen/tamañotitulo"/>
+        android:gravity="center"
+        android:text="@string/monitoreoTitulo"
+        android:textColor="@color/ColorText"
+        android:textSize="@dimen/tamañotitulo" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="00:00:00"
         android:layout_gravity="center"
-        android:gravity="center"
         android:layout_margin="@dimen/espaciotextos"
-        />
+        android:gravity="center"
+        android:text="00:00:00"
+        android:textColor="@color/ColorText" />
+
     <ListView
         android:id="@+id/lvMonitoreo"
         android:layout_width="@dimen/ancholvMonitoreo"
         android:layout_height="@dimen/tamañolvMonitoreo"
-        android:padding="@dimen/Padding10"
         android:layout_gravity="center"
-        >
-    </ListView>
+        android:padding="@dimen/Padding10"></ListView>
 
     <Button
         android:id="@+id/btnResultados"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/botonResultado"
         android:layout_gravity="center"
-        android:layout_marginTop="@dimen/espaciotextos"
-        />
+        android:layout_margin="@dimen/espaciotextos"
+        android:text="@string/botonResultado" />
 
 </LinearLayout>

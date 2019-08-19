@@ -45,9 +45,9 @@ public class configuracion extends AppCompatActivity {
             cursorConfiguracion.moveToFirst();
             tiempos = conexion.tiempoInicial();
             sensibilidad = conexion.sensibilidad();
-            ArrayAdapter<String> adaptadorTiempos = new ArrayAdapter<String>(configuracion.this, android.R.layout.simple_spinner_item, tiempos);
+            ArrayAdapter<String> adaptadorTiempos = new ArrayAdapter<String>(configuracion.this, R.layout.spinner, tiempos);
             spTiempoInicio.setAdapter(adaptadorTiempos);
-            ArrayAdapter<String> adatadorSensibilidad = new ArrayAdapter<String>(configuracion.this, android.R.layout.simple_spinner_item, sensibilidad);
+            ArrayAdapter<String> adatadorSensibilidad = new ArrayAdapter<String>(configuracion.this, R.layout.spinner, sensibilidad);
             spSensibilidad.setAdapter(adatadorSensibilidad);
             int posicionTiempoInicial = Integer.parseInt(cursorConfiguracion.getString(2)) - 1;
             spTiempoInicio.setSelection(posicionTiempoInicial);

@@ -3,6 +3,7 @@
     android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/ColorBody"
     android:layout_height="match_parent"
     android:gravity="center">
 
@@ -18,13 +19,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Seleccionar tiempo"
+            android:textColor="#FFFFFF"
             android:layout_margin="@dimen/espacioentretextos"/>
 
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/spTiempoInicio"
-            android:layout_margin="@dimen/espacioentretextos">
+            android:layout_margin="@dimen/espacioentretextos"
+            >
 
         </Spinner>
         <EditText
@@ -47,7 +50,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="7"
             android:text="Seleccionar sensibilidad"
-            android:layout_margin="@dimen/espacioentretextos"/>
+            android:layout_margin="@dimen/espacioentretextos"
+            android:textColor="#FFFFFF"/>
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -63,7 +67,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/confregistrate"
+            android:text="registrate"
             android:id="@+id/btnRegistrate"/>
     </LinearLayout>
 
