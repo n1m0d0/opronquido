@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center">
+    android:gravity="center"
+    android:background="@color/ColorBody"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,20 +15,23 @@
         android:gravity="center"
         android:orientation="vertical"
         android:padding="@dimen/dimensiontitulo"
-        android:weightSum="14">
+        android:weightSum="14"
+        android:background="@color/ColorBody">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/espacioentretextos"
             android:layout_weight="6"
-            android:text="@string/confmedicion"/>
+            android:text="@string/confmedicion"
+            android:textColor="@color/ColorText"/>
 
         <ListView
             android:id="@+id/lvMediciones"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="2">
+            android:layout_weight="2"
+            >
 
         </ListView>
 
@@ -36,7 +41,9 @@
             android:layout_height="match_parent"
             android:layout_margin="@dimen/espacioentretextos"
             android:layout_weight="6"
-            android:text="@string/confpromedio" />
+            android:text="@string/confpromedio"
+            android:textColor="@color/ColorText"
+            />
     </LinearLayout>
 
 </LinearLayout>

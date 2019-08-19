@@ -36,7 +36,7 @@ public class medica extends AppCompatActivity {
         idUsuario = data.getLong("idUsuario");
 
 
-        ArrayAdapter adapterBlood = new ArrayAdapter(this,android.R.layout.simple_spinner_item,blood);
+        ArrayAdapter adapterBlood = new ArrayAdapter(this,R.layout.spinner_item,blood);
         spSangre.setAdapter(adapterBlood);
 
         spSangre.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
