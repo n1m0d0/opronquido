@@ -129,14 +129,14 @@ public class monitoreo extends AppCompatActivity {
         btnResultados.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*if (btSocket != null) {
+                if (btSocket != null) {
                     try {
                         btSocket.close();
                     } catch (IOException e) {
                         Toast.makeText(getBaseContext(), "Error", Toast.LENGTH_SHORT).show();
                     }
                 }
-                finish();*/
+                //finish();
                 recorder.stop();
                 finish();
             }
@@ -176,14 +176,14 @@ public class monitoreo extends AppCompatActivity {
                             e.printStackTrace();
                         }
                         if (contador == 0) {
-                            MyConexionBT.write("R2`");
+                            MyConexionBT.write("G");
                             contador++;
                         } else {
                             if (contador < 5) {
                                 contador++;
                             } else {
                                 //cadena de cancelacion
-                                //MyConexionBT.write("R2`");
+                                MyConexionBT.write("B");
                                 contador = 0;
                             }
                         }
@@ -193,7 +193,7 @@ public class monitoreo extends AppCompatActivity {
                             contador++;
                         } else {
                             //cadena de cancelacion
-                            //MyConexionBT.write("R2`");
+                            MyConexionBT.write("B");
                             contador = 0;
                         }
                     }
@@ -273,7 +273,8 @@ public class monitoreo extends AppCompatActivity {
     @Override
     public void onResume() {
         super.onResume();
-        address = "98:D3:31:70:8B:84";//<-<- PARTE A MODIFICAR >->->
+        //address = "98:D3:31:70:8B:84";//<-<- PARTE A MODIFICAR >->->
+        address = "98:D3:31:80:14:D6";//<-<- PARTE A MODIFICAR >->->
         //Setea la direccion MAC
         BluetoothDevice device = btAdapter.getRemoteDevice(address);
 
