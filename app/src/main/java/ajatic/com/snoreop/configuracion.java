@@ -121,6 +121,7 @@ public class configuracion extends AppCompatActivity {
 
                 Intent irMedicion = new Intent(configuracion.this, tiempoespera.class);
                 startActivity(irMedicion);
+                finish();
             }
         });
         btnRegistrate.setOnClickListener(new View.OnClickListener() {

@@ -26,6 +26,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Set;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.UUID;
@@ -42,6 +43,7 @@ public class monitoreo extends AppCompatActivity {
     String medicion;
     int contador = 0;
     MediaRecorder recorder;
+    Intent ir;
 
     /***********************************/
     Handler bluetoothIn;
@@ -138,9 +140,21 @@ public class monitoreo extends AppCompatActivity {
                 }
                 //finish();
                 recorder.stop();
-                finish();
+                monitoreo.super.onDestroy();
+                ir  = new Intent(monitoreo.this, configuracion.class);
+                startActivity(ir);
             }
         });
+
+        Set<BluetoothDevice> pairedDevices = btAdapter.getBondedDevices();
+
+        if (pairedDevices.size() > 0) {
+            // There are paired devices. Get the name and address of each paired device.
+            for (BluetoothDevice device : pairedDevices) {
+                String deviceName = device.getName();
+                address = device.getAddress(); // MAC address
+            }
+        }
 
     }
 
@@ -176,15 +190,29 @@ public class monitoreo extends AppCompatActivity {
                             e.printStackTrace();
                         }
                         if (contador == 0) {
-                            MyConexionBT.write("G");
-                            contador++;
+                            if (MyConexionBT.write("G")) {
+                                contador++;
+                            } else {
+                                recorder.stop();
+                                monitoreo.super.onDestroy();
+                                ir  = new Intent(monitoreo.this, configuracion.class);
+                                startActivity(ir);
+                            }
+
                         } else {
                             if (contador < 5) {
                                 contador++;
                             } else {
                                 //cadena de cancelacion
-                                MyConexionBT.write("B");
-                                contador = 0;
+                                if(MyConexionBT.write("B")) {
+                                    contador = 0;
+                                } else {
+                                    recorder.stop();
+                                    monitoreo.super.onDestroy();
+                                    ir  = new Intent(monitoreo.this, configuracion.class);
+                                    startActivity(ir);
+                                }
+
                             }
                         }
 
@@ -193,8 +221,14 @@ public class monitoreo extends AppCompatActivity {
                             contador++;
                         } else {
                             //cadena de cancelacion
-                            MyConexionBT.write("B");
-                            contador = 0;
+                            if(MyConexionBT.write("B")) {
+                                contador = 0;
+                            } else {
+                                recorder.stop();
+                                monitoreo.super.onDestroy();
+                                ir  = new Intent(monitoreo.this, configuracion.class);
+                                startActivity(ir);
+                            }
                         }
                     }
 
@@ -239,13 +273,16 @@ public class monitoreo extends AppCompatActivity {
         }
 
         //Envio de trama
-        public void write(String input) {
+        public boolean write(String input) {
+            boolean respuesta = true;
             try {
                 mmOutStream.write(input.getBytes());
+                return respuesta;
             } catch (IOException e) {
                 //si no es posible enviar datos se cierra la conexión
                 Toast.makeText(getBaseContext(), "La Conexión fallo", Toast.LENGTH_LONG).show();
-                finish();
+                //finish();
+                return respuesta = false;
             }
         }
     }
@@ -274,7 +311,7 @@ public class monitoreo extends AppCompatActivity {
     public void onResume() {
         super.onResume();
         //address = "98:D3:31:70:8B:84";//<-<- PARTE A MODIFICAR >->->
-        address = "98:D3:31:80:14:D6";//<-<- PARTE A MODIFICAR >->->
+        //address = "98:D3:31:80:14:D6";//<-<- PARTE A MODIFICAR >->->
         //Setea la direccion MAC
         BluetoothDevice device = btAdapter.getRemoteDevice(address);
 
