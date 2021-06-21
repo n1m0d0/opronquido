@@ -342,4 +342,9 @@ public class monitoreo extends AppCompatActivity {
         } catch (IOException e2) {
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+    }
 }
