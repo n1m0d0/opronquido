@@ -9,6 +9,7 @@ import android.database.Cursor;
 import android.media.MediaRecorder;
 import android.os.Handler;
 import android.os.Message;
+import android.os.ParcelUuid;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,6 +22,8 @@ import android.widget.Toast;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -54,6 +57,7 @@ public class monitoreo extends AppCompatActivity {
     private ConnectedThread MyConexionBT;
     // Identificador unico de servicio - SPP UUID
     private static final UUID BTMODULEUUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
+    //private static UUID BTMODULEUUID = null;
     // String para la direccion MAC
     private static String address = null;
 
@@ -140,9 +144,10 @@ public class monitoreo extends AppCompatActivity {
                 }
                 //finish();
                 recorder.stop();
-                monitoreo.super.onDestroy();
+                //monitoreo.super.onDestroy();
                 ir  = new Intent(monitoreo.this, configuracion.class);
                 startActivity(ir);
+                finish();
             }
         });
 
@@ -155,7 +160,6 @@ public class monitoreo extends AppCompatActivity {
                 address = device.getAddress(); // MAC address
             }
         }
-
     }
 
     // Esta es la funcion que esta escuchando (grabando)
@@ -203,15 +207,16 @@ public class monitoreo extends AppCompatActivity {
                             if (contador < 5) {
                                 contador++;
                             } else {
+                                contador = 0;
                                 //cadena de cancelacion
-                                if(MyConexionBT.write("B")) {
+                                /*if(MyConexionBT.write("B")) {
                                     contador = 0;
                                 } else {
                                     recorder.stop();
                                     monitoreo.super.onDestroy();
                                     ir  = new Intent(monitoreo.this, configuracion.class);
                                     startActivity(ir);
-                                }
+                                }*/
 
                             }
                         }
@@ -220,15 +225,16 @@ public class monitoreo extends AppCompatActivity {
                         if (contador > 0 && contador < 5) {
                             contador++;
                         } else {
+                            contador = 0;
                             //cadena de cancelacion
-                            if(MyConexionBT.write("B")) {
+                            /*if(MyConexionBT.write("B")) {
                                 contador = 0;
                             } else {
                                 recorder.stop();
                                 monitoreo.super.onDestroy();
                                 ir  = new Intent(monitoreo.this, configuracion.class);
                                 startActivity(ir);
-                            }
+                            }*/
                         }
                     }
 
@@ -304,7 +310,15 @@ public class monitoreo extends AppCompatActivity {
     private BluetoothSocket createBluetoothSocket(BluetoothDevice device) throws IOException {
         //crea un conexion de salida segura para el dispositivo
         //usando el servicio UUID
-        return device.createRfcommSocketToServiceRecord(BTMODULEUUID);
+        ParcelUuid[] uuids = device.getUuids();
+        String uuid = "";
+        /*if (uuids != null) {
+            for (ParcelUuid puuid : uuids) {
+                uuid += puuid.toString() + " ";
+            }
+        }*/
+        uuid = uuids[0].toString();
+        return device.createRfcommSocketToServiceRecord(UUID.fromString(uuid));
     }
 
     @Override
@@ -324,13 +338,16 @@ public class monitoreo extends AppCompatActivity {
         try {
             btSocket.connect();
         } catch (IOException e) {
+            e.printStackTrace();
             try {
                 btSocket.close();
             } catch (IOException e2) {
+                e2.printStackTrace();
             }
         }
         MyConexionBT = new ConnectedThread(btSocket);
         MyConexionBT.start();
+
     }
 
     @Override
